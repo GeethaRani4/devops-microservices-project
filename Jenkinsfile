@@ -19,8 +19,8 @@ pipeline {
 
         stage('Test API') {
             steps {
-                sh 'curl http://api-gateway:3000/users || true'
-                sh 'curl http://localhost:3000/products'
+                sh 'curl http://host.docker.internal:3000/users'
+                sh 'curl http://host.docker.internal:3000/products'
             }
         }
     }
