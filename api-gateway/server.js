@@ -1,16 +1,17 @@
-const express = require("express");
-const axios = require("axios");
+const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
-app.get("/users", async (req, res) => {
-    const response = await axios.get("http://user-service:4001/users");
-    res.json(response.data);
+app.use(cors());
+
+app.get('/users', (req, res) => {
+  res.json([
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" }
+  ]);
 });
 
-app.get("/products", async (req, res) => {
-    const response = await axios.get("http://product-service:4002/products");
-    res.json(response.data);
+app.listen(3000, () => {
+  console.log("API Gateway running on port 3000");
 });
-
-app.listen(3000, () => console.log("API Gateway running on 3000"));
