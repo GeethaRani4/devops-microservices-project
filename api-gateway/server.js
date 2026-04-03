@@ -3,12 +3,20 @@ const cors = require('cors');
 
 const app = express();
 
+// VERY IMPORTANT LINE
 app.use(cors());
 
 app.get('/users', (req, res) => {
   res.json([
     { id: 1, name: "Alice" },
     { id: 2, name: "Bob" }
+  ]);
+});
+
+app.get('/products', (req, res) => {
+  res.json([
+    { id: 1, name: "Laptop" },
+    { id: 2, name: "Phone" }
   ]);
 });
 
