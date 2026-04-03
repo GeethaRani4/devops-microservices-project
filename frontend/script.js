@@ -1,17 +1,19 @@
-const API = "http://localhost:3000";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps Microservices Demo</title>
+</head>
+<body>
 
-function getUsers() {
-    fetch(`http://localhost:3000/users`)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById("output").innerText = JSON.stringify(data, null, 2);
-        });
-}
+    <h1>DevOps Microservices Demo</h1>
 
-function getProducts() {
-    fetch(`${API}/products`)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById("output").innerText = JSON.stringify(data, null, 2);
-        });
-}
+    <button id="getUsers">Get Users</button>
+    <button id="getProducts">Get Products</button>
+
+    <ul id="output"></ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
