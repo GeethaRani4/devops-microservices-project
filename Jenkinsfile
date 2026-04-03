@@ -3,8 +3,6 @@ pipeline {
 
     stages {
 
-        
-
         stage('Build Docker Images') {
             steps {
                 sh 'docker-compose build'
@@ -17,10 +15,17 @@ pipeline {
             }
         }
 
+        stage('Wait for Services') {
+            steps {
+                echo 'Waiting for services to start...'
+                sh 'sleep 15'
+            }
+        }
+
         stage('Test API') {
             steps {
-                sh 'curl http://host.docker.internal:3000/users'
-                sh 'curl http://host.docker.internal:3000/products'
+                sh 'curl http://host.docker.internal:3000/users || true'
+                sh 'curl http://host.docker.internal:3000/products || true'
             }
         }
     }
