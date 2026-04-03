@@ -1,7 +1,7 @@
 const API = "http://localhost:3000";
 
 function getUsers() {
-    fetch(`${API}/users`)
+    fetch(`http://localhost:3000/users`)
         .then(res => res.json())
         .then(data => {
             document.getElementById("output").innerText = JSON.stringify(data, null, 2);

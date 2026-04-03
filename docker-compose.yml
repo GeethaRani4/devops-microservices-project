@@ -1,4 +1,5 @@
 version: '3'
+
 services:
 
   user-service:
@@ -18,3 +19,10 @@ services:
     depends_on:
       - user-service
       - product-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api-gateway
