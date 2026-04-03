@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 
-// VERY IMPORTANT LINE
+// VERY IMPORTANT
 app.use(cors());
 
 app.get('/users', (req, res) => {
