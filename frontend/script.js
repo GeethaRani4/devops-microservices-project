@@ -1,19 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DevOps Microservices Demo</title>
-</head>
-<body>
+// Get Users
+document.getElementById("getUsers").addEventListener("click", () => {
+  fetch("http://localhost:3000/users")
+    .then(res => res.json())
+    .then(data => {
+      const output = document.getElementById("output");
+      output.innerHTML = "";
 
-    <h1>DevOps Microservices Demo</h1>
+      data.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = user.name;
+        output.appendChild(li);
+      });
+    })
+    .catch(err => console.log(err));
+});
 
-    <button id="getUsers">Get Users</button>
-    <button id="getProducts">Get Products</button>
 
-    <ul id="output"></ul>
+// Get Products
+document.getElementById("getProducts").addEventListener("click", () => {
+  fetch("http://localhost:3000/products")
+    .then(res => res.json())
+    .then(data => {
+      const output = document.getElementById("output");
+      output.innerHTML = "";
 
-    <script src="script.js"></script>
-
-</body>
-</html>
+      data.forEach(product => {
+        const li = document.createElement("li");
+        li.textContent = product.name;
+        output.appendChild(li);
+      });
+    })
+    .catch(err => console.log(err));
+});
